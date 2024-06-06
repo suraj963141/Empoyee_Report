@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card with Icons and Graph</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      .icon-container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .second-icon {
+        margin-left: 290px;
+      }
+      .bar {
+        display: inline-block;
+        width: 40px;
+        background-color: rgba(75, 192, 192, 0.2);
+        border: 1px solid rgba(75, 192, 192, 1);
+      }
+      .main-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      .v-meter {
+        position: relative;
+        top: 0px;
+        left: -10;
+        width: 350px;
+        height: 100px;
+        z-index: -50px;
+      }
+      .v-meter li {
+        position: relative;
+        left: -5px;
+        
+        height: 48.5px;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.126);
+      }
+      .v-meter li div {
+        position: absolute;
+        bottom: -20px; /* Adjust as needed */
+      }
+      .number-grpah {
+        margin-top: 0px;
+      }
+      .second-value {
+        position: relative;
+        left: -5px;
+        height: 48.5px;
+        border-bottom: solid 1px rgba(0, 0, 0, 0.126);
+      }
+      .inside-main-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 800px;
+      }
+      .chart-container {
+        position: relative;
+        height: 300px;
+        width: 300px;
+        margin-left: 20px;
+        margin-bottom: 100px;
+      }
+      .y-axis-labels {
+        position: absolute;
+        bottom: 0;
+        left: -30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+      .y-axis-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      .bar-container {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: space-around;
+        margin: 20px;
+        align-items: flex-end;
+        width: calc(100px - 80px);
+        bottom: -50px;
+      }
+      .item-container {
+        margin-left: 20px;
+      }
+      .mt-2 {
+        transform: rotate(-45deg);
+        font-size: 10px;
+      }
+      .first-icon {
+        display: flex;
+      }
+      .special {
+        margin-top: 80px;
+      }
+      .svg-edit {
+        background-color: burlywood;
+      }
+      .search-button {
+        display: flex;
+        /* justify-content: space-between; */
+        width: 350px;
+      }
+
+      .button {
+        margin-left: 40px;
+        border-radius: 10px;
+        height: 35px;
+        width: 300px;
+        border: solid 1px rgba(0, 0, 0, 0.094);
+        background-color: white;
+        display: flex; /* Make the button a flex container */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        margin-right: 50px;
+      }
+
+      .img-logo {
+        vertical-align: middle; /* Align image vertically in the middle */
+        /* margin-right: 80px; */
+      }
+      .search-tab{
+        padding-right: 100px;
+        /* background-color: red; */
+      }
+      
+    </style>
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="inside-main-container">
+      <div class="main-container">
+        <div class="bg-white shadow-md rounded-lg p-6 max-w-sm w-full">
+          <div class="flex items-center justify-between mb-4">
+            <div class="icon-container flex items-center">
+              <div class="first-icon">
+                <img
+                  width="50"
+                  height="50"
+                  src="https://img.icons8.com/ios/50/filter--v1.png"
+                  alt="filter--v1"
+                />
+              </div>
+              <div class="second-icon">
+                <svg
+                  class="w-6 h-6 text-gray-500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <circle cx="5" cy="12" r="1.5" />
+                  <circle cx="12" cy="12" r="1.5" />
+                  <circle cx="19" cy="12" r="1.5" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <h2 class="text-xl font-bold">Work Order By Status</h2>
+          <div class="chart-container mt-4">
+            <div class="y-axis-labels">
+              <ul class="v-meter">
+                <li>
+                  <div class="special">400</div>
+                </li>
+                <li>
+                  <div>320</div>
+                </li>
+                <li>
+                  <div>240</div>
+                </li>
+                <li>
+                  <div>160</div>
+                </li>
+                <li>
+                  <div>80</div>
+                </li>
+                <li class="li-class">
+                  <div>0</div>
+                </li>
+              </ul>
+            </div>
+            <div class="bar-container">
+              <div class="item-container flex flex-col items-center">
+                <div
+                  class="bar"
+                  style="
+                    height: 98px;
+                    background-color: #a3c1ff;
+                    border-color: rgba(153, 102, 255, 1);
+                  "
+                ></div>
+                <span class="mt-2">Demo D...</span>
+              </div>
+              <div class="item-container flex flex-col items-center">
+                <div
+                  class="bar"
+                  style="
+                    height: 30px;
+                    background-color: #a3c1ff;
+                    border-color: rgba(153, 102, 255, 1);
+                  "
+                ></div>
+                <span class="mt-2">Did Not j...</span>
+              </div>
+              <div class="item-container flex flex-col items-center">
+                <div
+                  class="bar"
+                  style="
+                    height: 196px;
+                    background-color: #a3c1ff;
+                    border-color: rgba(153, 102, 255, 1);
+                  "
+                ></div>
+                <span class="mt-2">Did not Re...</span>
+              </div>
+              <div class="item-container flex flex-col items-center">
+                <div
+                  class="bar"
+                  style="
+                    height:93px;
+                    background-color: #a3c1ff;
+                    border-color: rgba(153, 102, 255, 1);
+                  "
+                ></div>
+                <span class="mt-2">In Follow...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="inside-main-container">
+          <div class="main-container">
+            <div class="bg-white shadow-md rounded-lg p-6 max-w-sm w-full">
+              <div class="flex items-center justify-between mb-4">
+                <div class="icon-container flex items-center">
+                  <div class="first-icon">
+                    <img
+                      width="50"
+                      height="50"
+                      src="https://img.icons8.com/ios/50/filter--v1.png"
+                      alt="filter--v1"
+                    />
+                  </div>
+                  <div class="second-icon">
+                    <svg
+                      class="w-6 h-6 text-gray-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <circle cx="5" cy="12" r="1.5" />
+                      <circle cx="12" cy="12" r="1.5" />
+                      <circle cx="19" cy="12" r="1.5" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <h2 class="text-xl font-bold">Service Request</h2>
+              <div class="chart-container mt-4">
+                <div class="y-axis-labels">
+                  <ul class="v-meter">
+                    <li>
+                      <div class="special">400</div>
+                    </li>
+                    <li>
+                      <div>320</div>
+                    </li>
+                    <li>
+                      <div>240</div>
+                    </li>
+                    <li>
+                      <div>160</div>
+                    </li>
+                    <li>
+                      <div>80</div>
+                    </li>
+                    <li class="li-class">
+                      <div>0</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="bar-container">
+                  <div class="item-container flex flex-col items-center">
+                    <div
+                      class="bar"
+                      style="
+                        height: 105px;
+                        background-color: #a3c1ff;
+                        border-color: rgba(153, 102, 255, 1);
+                      "
+                    ></div>
+                    <span class="mt-2">Demo D...</span>
+                  </div>
+                  <div class="item-container flex flex-col items-center">
+                    <div
+                      class="bar"
+                      style="
+                        height: 30px;
+                        background-color: #a3c1ff;
+                        border-color: rgba(153, 102, 255, 1);
+                      "
+                    ></div>
+                    <span class="mt-2">Did Not j...</span>
+                  </div>
+                  <div class="item-container flex flex-col items-center">
+                    <div
+                      class="bar"
+                      style="
+                        height: 200px;
+                        background-color: #a3c1ff;
+                        border-color: rgba(153, 102, 255, 1);
+                      "
+                    ></div>
+                    <span class="mt-2">Did not Re...</span>
+                  </div>
+                  <div class="item-container flex flex-col items-center">
+                    <div
+                      class="bar"
+                      style="
+                        height: 95px;
+                        background-color: #a3c1ff;
+                        border-color: rgba(153, 102, 255, 1);
+                      "
+                    ></div>
+                    <span class="mt-2">In Follow...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+      <div class="bg-white shadow-md rounded-lg p-6 max-w-sm w-full">
+        <div class="flex items-center justify-between mb-4">
+          <div class="icon-container flex items-center">
+            <div class="first-icon">
+              <svg
+                class="w-6 h-6 text-gray-500 mr-2"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 5h18M3 12h18m-7 7h7"
+                />
+              </svg>
+              <select name="region" id="Region">
+                <option value="Hindu">Hindu</option>
+                <option value="Muslim">Muslim</option>
+                <option value="sikh">sikh</option>
+              </select>
+              <select name="Country" id="Country">
+                <option value="India">India</option>
+                <option value="Angola">Angola</option>
+                <option value="United State Of America">
+                  United State Of America
+                </option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Cyprus">Cyprus</option>
+              </select>
+            </div>
+            <div class="second-icon">
+              <svg
+                class="w-6 h-6 text-gray-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              ></svg>
+            </div>
+          </div>
+        </div>
+        <div class="search-button">
+          <h2 class="text-xl font-bold">Status</h2>
+          <button class="button">
+            <img
+              class="img-logo"
+              width="30"
+              height="30"
+              src="https://img.icons8.com/fluency-systems-regular/48/search--v1.png"
+              alt="search--v1"
+            />
+            <h3 class="search-tab">Search..</h3>
+          </button>         
+        </div>
+
+        <div class="chart-container mt-4">
+          <div class="y-axis-labels">
+            <ul class="v-meter">
+              <li>
+                <div class="special">400</div>
+              </li>
+              <li>
+                <div>320</div>
+              </li>
+              <li>
+                <div>240</div>
+              </li>
+              <li>
+                <div>160</div>
+              </li>
+              <li>
+                <div>80</div>
+              </li>
+              <li class="li-class">
+                <div>0</div>
+              </li>
+            </ul>
+          </div>
+          <div class="bar-container">
+            <div class="item-container flex flex-col items-center">
+              <div
+                class="bar"
+                style="
+                  height: 200px;
+                  background-color: #a3c1ff;
+                  border-color: rgba(153, 102, 255, 1);
+                "
+              ></div>
+              <span class="mt-2">Demo D...</span>
+            </div>
+            <div class="item-container flex flex-col items-center">
+              <div
+                class="bar"
+                style="
+                  height: 100px;
+                  background-color: #a3c1ff;
+                  border-color: rgba(153, 102, 255, 1);
+                "
+              ></div>
+              <span class="mt-2">Did Not j...</span>
+            </div>
+            <div class="item-container flex flex-col items-center">
+              <div
+                class="bar"
+                style="
+                  height: 50px;
+                  background-color: #a3c1ff;
+                  border-color: rgba(153, 102, 255, 1);
+                "
+              ></div>
+              <span class="mt-2">Did not Re...</span>
+            </div>
+            <div class="item-container flex flex-col items-center">
+              <div
+                class="bar"
+                style="
+                  height: 100px;
+                  background-color: #a3c1ff;
+                  border-color: rgba(153, 102, 255, 1);
+                "
+              ></div>
+              <span class="mt-2">In Follow...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
